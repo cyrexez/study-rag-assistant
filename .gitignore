@@ -1,0 +1,7 @@
+venv/
+ragenv/
+.env
+data/
+vectorstore/
+__pycache__/
+.DS_Store

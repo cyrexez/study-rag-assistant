@@ -1,0 +1,18 @@
+# Web Interface
+streamlit==1.50.0
+
+# AI & RAG Framework
+langchain==0.3.27
+langchain-community==0.3.31
+langchain-core==0.3.81
+langchain-google-genai==2.1.12
+langchain-text-splitters==0.3.11
+google-generativeai==0.8.5
+
+# Vector Database
+faiss-cpu==1.13.0
+
+# Document Processing & Utilities
+pypdf==6.5.0
+python-dotenv==1.1.1
+numpy==2.0.2
