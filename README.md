@@ -11,7 +11,7 @@
 
 - **Structural Context Buffer**: Unlike standard RAG systems, this assistant extracts and caches the first 30 pages of documents to understand the "global structure" (Table of Contents, Introduction, and Chapters), allowing it to answer high-level structural questions.
 - **Persistent Multi-Book Workspace**: Switch between different research subjects in your library without losing your specific chat history for each book.
-- **High-Speed Streaming**: Optimized "typewriter-style" response delivery using Gemini 1.5 Flash for a seamless, ChatGPT-like user experience.
+- **High-Speed Streaming**: Optimized "typewriter-style" response delivery using Gemini 2.5 Flash for a seamless, ChatGPT-like user experience.
 - **Security-First**: Fully integrated with `python-dotenv` to ensure API keys remain private and are never leaked to version control.
 
 ## 🛠 Tech Stack
@@ -62,6 +62,6 @@ This project was inspired by the original [RAG-with-Langchain-and-FastAPI](https
 I have modified and extended the original concept to better suit academic research needs by implementing:
 
 - **Streamlit-based Interactive UI**: Replaced the FastAPI backend with a dedicated researcher dashboard.
-- **Google Gemini 1.5 Flash Integration**: Transitioned from OpenAI to Gemini for high-speed, cost-effective analysis.
+- **Google Gemini 2.5 Flash Integration**: Transitioned from OpenAI to Gemini.
 - **Structural Context Retrieval**: Added specialized logic to index Table of Contents and document structure for better global awareness.
 - **Persistent Chat History**: Enabled per-book session management to keep multiple research threads organized.
