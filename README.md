@@ -1,129 +1,66 @@
+# 📚 Study RAG Assistant
 
+![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.50+-red.svg)
+![LangChain](https://img.shields.io/badge/LangChain-0.3+-green.svg)
+![Gemini](https://img.shields.io/badge/Google-Gemini_1.5_Flash-orange.svg)
 
-# 🚀 RAG System with LangChain and FastAPI 🌐
+**A context-aware Research Assistant for deep technical document analysis.** This tool is designed to aid the consumption of documents for students and researchers studying dense materials by providing structural awareness and persistent conversation memory.
 
-Welcome to this repository! This project demonstrates how to build a powerful RAG system using **LangChain** and **FastAPI** for generating contextually relevant and accurate responses by integrating external data into the generative process.
+## 🌟 Key Technical Features
 
-## 📋 Project Overview
+- **Structural Context Buffer**: Unlike standard RAG systems, this assistant extracts and caches the first 30 pages of documents to understand the "global structure" (Table of Contents, Introduction, and Chapters), allowing it to answer high-level structural questions.
+- **Persistent Multi-Book Workspace**: Switch between different research subjects in your library without losing your specific chat history for each book.
+- **High-Speed Streaming**: Optimized "typewriter-style" response delivery using Gemini 1.5 Flash for a seamless, ChatGPT-like user experience.
+- **Security-First**: Fully integrated with `python-dotenv` to ensure API keys remain private and are never leaked to version control.
 
-The RAG system combines retrieval and generation to provide smarter AI-driven responses. Using **LangChain** for document handling and embeddings, and **FastAPI** for deploying a fast, scalable API, this project includes:
+## 🛠 Tech Stack
 
-- 🗂️ **Document Loading**: Load data from various sources (text, PDFs, etc.).
-- ✂️ **Text Splitting**: Break large documents into manageable chunks.
-- 🧠 **Embeddings**: Generate vector embeddings for efficient search and retrieval.
-- 🔍 **Vector Stores**: Store embeddings in a vector store for fast similarity searches.
-- 🔧 **Retrieval**: Retrieve the most relevant document chunks based on user queries.
-- 💬 **Generative Response**: Use retrieved data with language models (LLMs) to generate accurate, context-aware answers.
-- 🌐 **FastAPI**: Deploy the RAG system as a scalable API for easy interaction.
+- **LLM**: Google Gemini 2.5 Flash
+- **Embeddings**: Google `text-embedding-004`
+- **Vector Store**: FAISS (Facebook AI Similarity Search)
+- **Orchestration**: LangChain
+- **UI Framework**: Streamlit
 
-## ⚙️ Setup and Installation
+## 🚀 Quick Start
 
-### Prerequisites
-
-Make sure you have the following installed:
-- 🐍 Python 3.10+
-- 🐳 Docker (optional, for deployment)
-- 🛠️ PostgreSQL or FAISS (for vector storage)
-
-### Installation Steps
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/anarojoecheburua/RAG-with-Lanchain-and-FastAPI.git
-   cd rag-system
-   ```
-
-2. **Set up a virtual environment**:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # For Linux/Mac
-   venv\Scripts\activate      # For Windows
-   ```
-
-3. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Run the FastAPI server**:
-   ```bash
-   uvicorn app.main:app --reload
-   ```
-
-   Now, your FastAPI app will be running at `http://127.0.0.1:8000` 🎉!
-
-### Add Your OpenAI API Key 🔑
-
-To integrate the OpenAI language model into your RAG system, you’ll need to provide your OpenAI API key. Follow these steps to set it up:
-
-1. Get your API key: If you don’t have one yet, you can generate your OpenAI API key by logging into your account on the OpenAI platform.
-
-2. Create a .env file: In the root directory of your project, create a .env file to securely store your API key. The .env file allows you to load environment variables.
-
-3. Add the API key to the .env file: Open the .env file and add the following line, replacing your-openai-api-key with your actual OpenAI key:
+### 1. Clone & Setup
 
 ```bash
-OPENAI_API_KEY=your-openai-api-key
+git clone [https://github.com/cyrexez/study-rag-assistant.git](https://github.com/cyrexez/study-rag-assistant.git)
+cd study-rag-assistant
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 ```
 
-4. Load the API key in your code: Ensure your application loads this key when it runs. In your Python code, you can use the python-dotenv package to automatically load environment variables from the .env file:
+2. Configure API Key
+   Create a .env file in the root directory:
 
-```bash
-pip install python-dotenv
-```
+Plaintext
 
-Then, wherever you're initializing the OpenAI API, add:
+GOOGLE_API_KEY=your_gemini_api_key_here 3. Run the Assistant
+Bash
 
-```
-from dotenv import load_dotenv
-import os
+python -m streamlit run app.py
+📂 Project Structure
+app.py: Streamlit frontend and session state management.
 
-load_dotenv()
+rag_backend.py: Core RAG logic, structural indexing, and retrieval chains.
 
-openai_api_key = os.getenv("OPENAI_API_KEY")
-```
-Now, your OpenAI API key is securely loaded from the environment, and you're ready to start using it in your RAG system! 🎉
+data/: Local directory for your academic PDFs (excluded from Git).
 
-## 🛠️ Features
-
-- **Retrieval-Augmented Generation**: Combines the best of both worlds—retrieving relevant data and generating insightful responses.
-- **Scalable API**: FastAPI makes it easy to deploy and scale the RAG system.
-- **Document Handling**: Supports multiple document types for loading and processing.
-- **Vector Embeddings**: Efficient search with FAISS or other vector stores.
-
-## 🛡️ Security
-
-- 🔐 **OAuth2 and API Key** authentication support for secure API access.
-- 🔒 **TLS/SSL** for encrypting data in transit.
-- 🛡️ **Data encryption** for sensitive document storage.
-
-## 🚀 Deployment
-
-### Docker Deployment
-If you want to deploy your RAG system using Docker, simply build the Docker image and run the container:
-
-```bash
-docker build -t rag-system .
-docker run -p 8000:8000 rag-system
-```
-
-### Cloud Deployment
-Deploy your RAG system to the cloud using platforms like **AWS**, **Azure**, or **Google Cloud** with minimal setup.
-
-## 🧠 Future Enhancements
-
-- 🔄 **Real-time Data Integration**: Add real-time data sources for dynamic responses.
-- 🤖 **Advanced Retrieval Techniques**: Implement deep learning-based retrievers for better query understanding.
-- 📊 **Monitoring Tools**: Add monitoring with tools like Prometheus or Grafana for performance insights.
-
-## 🤝 Contributing
-
-Want to contribute? Feel free to fork this repository, submit a pull request, or open an issue. We welcome all contributions! 🛠️
-
-## 📄 License
-
-This project is licensed under the MIT License.
+vectorstore/: Local FAISS index storage (excluded from Git).
 
 ---
 
-🎉 **Thank you for checking out the RAG System with LangChain and FastAPI!** If you have any questions or suggestions, feel free to reach out or open an issue. Let's build something amazing!
+## 💡 Credits & Inspiration
+
+This project was inspired by the original [RAG-with-Langchain-and-FastAPI](https://github.com/anarojoecheburua/RAG-with-Langchain-and-FastAPI) repository by [Ana Rojo-Echeburúa](https://github.com/anarojoecheburua).
+
+I have modified and extended the original concept to better suit academic research needs by implementing:
+
+- **Streamlit-based Interactive UI**: Replaced the FastAPI backend with a dedicated researcher dashboard.
+- **Google Gemini 1.5 Flash Integration**: Transitioned from OpenAI to Gemini for high-speed, cost-effective analysis.
+- **Structural Context Retrieval**: Added specialized logic to index Table of Contents and document structure for better global awareness.
+- **Persistent Chat History**: Enabled per-book session management to keep multiple research threads organized.
