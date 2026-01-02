@@ -34,22 +34,17 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-2. Configure API Key
+### 2. Configure API Key
    Create a .env file in the root directory:
-
-Plaintext
-
-GOOGLE_API_KEY=your_gemini_api_key_here 3. Run the Assistant
-Bash
-
+   GOOGLE_API_KEY=your_gemini_api_key_here 3. Run the Assistant
+```bash
 python -m streamlit run app.py
-📂 Project Structure
+```
+
+## 📂 Project Structure
 app.py: Streamlit frontend and session state management.
-
 rag_backend.py: Core RAG logic, structural indexing, and retrieval chains.
-
 data/: Local directory for your academic PDFs (excluded from Git).
-
 vectorstore/: Local FAISS index storage (excluded from Git).
 
 ---
