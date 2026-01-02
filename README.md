@@ -3,7 +3,7 @@
 ![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.50+-red.svg)
 ![LangChain](https://img.shields.io/badge/LangChain-0.3+-green.svg)
-![Gemini](https://img.shields.io/badge/Google-Gemini_1.5_Flash-orange.svg)
+![Gemini](https://img.shields.io/badge/Google-Gemini_2.5_Flash-orange.svg)
 
 **A context-aware Research Assistant for deep technical document analysis.** This tool is designed to aid the consumption of documents for students and researchers studying dense materials by providing structural awareness and persistent conversation memory.
 
