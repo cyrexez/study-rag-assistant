@@ -1,5 +1,10 @@
 # 📚 Study RAG Assistant
 
+https://github.com/user-attachments/assets/0cccc867-cc9a-431b-94fa-159888cbe0ad
+
+
+Uploading Screen Recording 2026-01-08 at 16.01.53.mov…
+
 ![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.50+-red.svg)
 ![LangChain](https://img.shields.io/badge/LangChain-0.3+-green.svg)
